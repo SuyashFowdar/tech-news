@@ -3,5 +3,5 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+Category.create([{ name: 'Phone', priority: 1 }, { name: 'Tablet', priority: 2 }, { name: 'Laptop', priority: 3 }, { name: 'Desktop', priority: 4 }, { name: 'Watch', priority: 5 }, { name: 'TV', priority: 6 }])
 #   Character.create(name: 'Luke', movie: movies.first)

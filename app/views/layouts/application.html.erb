@@ -10,6 +10,29 @@
   </head>
 
   <body>
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    <nav class="nav row">
+      <div class="row">
+          <%= link_to "Home", root_path, class: "nav_item" %>
+      </div>
+      <% if session[:user_id] %>
+        <div class="row">
+          <span class="nav_item"><%= session[:user_name] %></span>
+          <%= link_to 'New Article', new_article_path, class: "nav_item"%>
+          <%= link_to "Log Out", users_destroy_session_path, class: "nav_item" %>
+        </div>
+      <% else %>
+        <div class="row">
+          <%= link_to 'Log In', users_sign_in_path, class: "nav_item" %>
+          <%= link_to 'Sign Up', users_sign_up_path, class: "nav_item" %>
+        </div>
+      <% end %>
+    </nav>
     <%= yield %>
   </body>
 </html>
