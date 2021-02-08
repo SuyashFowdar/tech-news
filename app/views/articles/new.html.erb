@@ -1,5 +1,35 @@
-<h1>New Article</h1>
+<h1 class="row main-center">New Article</h1>
 
-<%= render 'form', article: @article %>
+<%= form_with(model: @article, local: true, class: 'new-article-form') do |form| %>
+  <div class="col margin8">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
 
-<%= link_to 'Back', root_path %>
+  <div class="col margin8">
+    <%= form.label :text %>
+    <%= form.text_area :text %>
+  </div>
+
+  <div class="col margin8">
+    <%= form.label :image %>
+    <%= form.text_field :image %>
+  </div>
+
+  <div class="col margin8">
+    <label>Category</label>
+    <div class="row wrap">
+      <% @categories.each do |category| %>
+        <label class="row margin8">
+          <%= check_box("", "categories", {:multiple => true}, category.id) %>
+          <%= category.name %>
+        </label>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row main-center">
+    <%= form.submit %>
+  </div>
+<% end %>
+

@@ -27,20 +27,21 @@ class UsersController < ApplicationController
 
   def destroy_session
     reset_session
+    flash[:notice] = 'Logged out successfully!'
     redirect_to root_path
   end
 
   def create
     @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: "User was successfully created." }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :sign_up, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.save
+      session[:user_id] = @user[:id]
+      session[:user_name] = @user[:name]
+      flash[:notice] = 'User was successfully created.'
+      redirect_to root_path
+    else
+      redirect_to users_sign_up_path
+      flash[:alert] = 'User was not created!'
     end
   end
 

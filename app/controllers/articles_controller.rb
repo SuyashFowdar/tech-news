@@ -1,7 +1,5 @@
 class ArticlesController < ApplicationController
-  def index
-    @articles = Article.all
-  end
+  before_action :signed_in?, only: %i[new create]
 
   def new
     @article = Article.new
@@ -30,5 +28,11 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :text, :image)
+  end
+
+  def signed_in?
+    return true if session[:user_id] && session[:user_name]
+
+    redirect_to users_sign_in_path
   end
 end

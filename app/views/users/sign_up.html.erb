@@ -1,5 +1,12 @@
-<h1>Sign Up</h1>
+<h1 class="row main-center">Sign Up</h1>
 
-<%= render 'form', user: @user %>
+<%= form_with(model: @user, local: true) do |form| %>
+  <div class="col margin8">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
 
-<%= link_to 'Back', users_path %>
+  <div class="row main-center">
+    <%= form.submit %>
+  </div>
+<% end %>

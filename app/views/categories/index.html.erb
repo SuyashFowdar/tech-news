@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="home">
+  <article class="most-voted">
+    <%= link_to '', '#', :style => "background-image: url(#{@most_voted_article.image});", :class => 'img' %>
+    <div>
+      <h3><%= @most_voted_article.title %></h3>
+      <p><%= @most_voted_article.text.truncate(100) %></p>
+    </div>
+  </article>
 
-<h1>Categories</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="row wrap">
     <% @categories.each do |category| %>
-      <tr>
-        <td><%= link_to category.name, category %></td>
-      </tr>
+      <article class="home-category">
+        <% if !@list[category.id].nil? %>
+          <%= link_to '', category, :style => "background-image: url(#{@list[category.id].image});", :class => 'img' %>
+          <div class="col flex main-space-between">
+            <h3><%= category.name %></h3>
+            <h4><%= @list[category.id].title %></h4>
+          </div>
+        <% end %>
+      </article>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
