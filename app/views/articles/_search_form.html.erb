@@ -1,0 +1,3 @@
+<%= form_with(url: { controller: 'articles', action: 'search' }, method: :get, local: true, class: 'row cross-center search-form') do |f| %>
+  <%= f.text_field :search, placeholder: 'Search article' %>
+<% end %>

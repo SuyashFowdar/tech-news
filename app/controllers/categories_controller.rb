@@ -15,7 +15,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @articles = @category.articles.order('created_at DESC')
+    @articles = @category.articles.includes('author').order('created_at DESC')
   end
 
   def vote

@@ -8,16 +8,6 @@
   </article>
 
   <div class="row wrap">
-    <% @categories.each do |category| %>
-      <article class="home-category">
-        <% if !@list[category.id].nil? %>
-          <%= link_to '', category, :style => "background-image: url(#{@list[category.id].image});", :class => 'img' %>
-          <div class="col flex main-space-between">
-            <h3><%= category.name %></h3>
-            <h4><%= @list[category.id].title %></h4>
-          </div>
-        <% end %>
-      </article>
-    <% end %>
+    <%= home_categories %>
   </div>
 </div>

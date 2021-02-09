@@ -7,35 +7,42 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/bcea3aca40.js" crossorigin="anonymous"></script>
+    <%= favicon_link_tag asset_path('favicon.ico') %>
   </head>
 
   <body>
-    <% if notice %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
+    <%= notification %>
     <nav class="nav row">
       <div class="row">
-          <%= link_to "Home", root_path %>
-          <% @nav_categories.each do |category| %>
-            <%= link_to category.name, category %></td>
-          <% end %>
+        <%= link_to(root_path, class: nav_selected('/')) do %>
+          <%= image_tag asset_path('favicon.ico'), size: '20' %>
+          Home
+        <% end %>
+        <%= category_items %>
+        <%= render :partial => 'articles/search_form' %>
       </div>
-      <% if session[:user_id] %>
-        <div class="row">
-          <span class="nav-item"><%= session[:user_name] %></span>
-          <%= link_to 'New Article', new_article_path%>
-          <%= link_to "Log Out", users_destroy_session_path %>
-        </div>
-      <% else %>
-        <div class="row">
-          <%= link_to 'Log In', users_sign_in_path %>
-          <%= link_to 'Sign Up', users_sign_up_path %>
-        </div>
-      <% end %>
+      <%= session_info %>
     </nav>
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
+    <footer class="row">
+      <div class="row cross-center">
+        <%= image_tag asset_path('favicon.ico'), size: '40' %>
+        Tech News
+      </div>
+      <div class="row cross-center main-center flex">
+        <%= link_to 'Privacy Policy', '#' %>
+        <%= link_to 'Terms & Conditions', '#' %>
+        <span>Copyright 2021. All rights reserved.</span>
+      </div>
+      <div class="row cross-center">
+        <span>Connect with us:</span>
+        <span><i class="fab fa-twitter"></i></span>
+        <span><i class="fab fa-instagram"></i></span>
+        <span><i class="fab fa-facebook-f"></i></span>
+      </div>
+    </footer>
   </body>
 </html>

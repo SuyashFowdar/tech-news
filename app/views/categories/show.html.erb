@@ -1,19 +1,4 @@
-<h2 class="row main-center"><%= @category.name %></h2>
+<h1 class="row main-center"><%= @category.name %></h1>
 <div class="row wrap category">
-  <% @articles.each do |article| %>
-    <article>
-      <%= link_to '', '#', :style => "background-image: url(#{article.image});", :class => 'img' %>
-      <div>
-        <h3><%= article.title %></h3>
-        <p><%= article.text.truncate(100) %></p>
-        <% if session[:user_id] %>
-          <% if !article.votes.pluck(:user_id).include?(session[:user_id]) %>
-            <%= link_to 'Vote', :action => 'vote', :article => article, :category => @category %>
-          <% else %>
-            <div class="voted">Voted</div>
-          <% end %>
-        <% end %>
-      </div>
-    </article>
-  <% end %>
+  <%= article_items %>
 </div>

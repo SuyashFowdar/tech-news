@@ -27,7 +27,7 @@ This project is the Capstone Project for the Microverse Rails Technical Curricul
 - Install the required gems. Run `bundle install`
 - Install Javascript dependencies. Run `yarn install`
 - Install the locale database. Run `rake db:migrate`
-- Add the Categories. Run `rake db:seed`
+- Run `rake db:seed` to add the Default Categories or run `rake db:seed test_data=yes` to add categories with test data for Articles, Users and Votes.
 - If you have problems with the gem versions try installing [RVM](https://rvm.io/)
 - Launch a Rails Server using `rails server`
 - Open your browser and go to `127.0.0.1:3000` or `localhost:3000`

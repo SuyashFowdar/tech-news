@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post 'users/create_session'
   get 'users/destroy_session'
   get 'categories/vote'
+  get 'articles/search'
   resources :categories, only: [:index, :show]
   resources :users, only: [:new, :create]
   resources :articles, only: [:new, :create]

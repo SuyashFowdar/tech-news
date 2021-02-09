@@ -1,6 +1,6 @@
 <h1 class="row main-center">New Article</h1>
 
-<%= form_with(model: @article, local: true, class: 'new-article-form') do |form| %>
+<%= form_with(model: @article, local: true, class: 'form') do |form| %>
   <div class="col margin8">
     <%= form.label :title %>
     <%= form.text_field :title %>
@@ -12,19 +12,14 @@
   </div>
 
   <div class="col margin8">
-    <%= form.label :image %>
+    <%= form.label 'Image Url' %>
     <%= form.text_field :image %>
   </div>
 
   <div class="col margin8">
     <label>Category</label>
     <div class="row wrap">
-      <% @categories.each do |category| %>
-        <label class="row margin8">
-          <%= check_box("", "categories", {:multiple => true}, category.id) %>
-          <%= category.name %>
-        </label>
-      <% end %>
+      <%= new_article_categories %>
     </div>
   </div>
 
