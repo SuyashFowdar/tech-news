@@ -1,0 +1,30 @@
+<h1 class="row main-center">New Article</h1>
+
+<%= form_with(model: @article, local: true, class: 'form') do |form| %>
+  <div class="col margin8">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="col margin8">
+    <%= form.label :text %>
+    <%= form.text_area :text %>
+  </div>
+
+  <div class="col margin8">
+    <%= form.label 'Image Url' %>
+    <%= form.text_field :image %>
+  </div>
+
+  <div class="col margin8">
+    <label>Category</label>
+    <div class="row wrap">
+      <%= new_article_categories %>
+    </div>
+  </div>
+
+  <div class="row main-center">
+    <%= form.submit %>
+  </div>
+<% end %>
+

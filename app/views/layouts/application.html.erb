@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TechNews</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/bcea3aca40.js" crossorigin="anonymous"></script>
+    <%= favicon_link_tag asset_path('favicon.ico') %>
+  </head>
+
+  <body>
+    <%= notification %>
+    <nav class="nav row">
+      <div class="row">
+        <%= link_to(root_path, class: nav_selected('/')) do %>
+          <%= image_tag asset_path('favicon.ico'), size: '20' %>
+          Home
+        <% end %>
+        <%= category_items %>
+        <%= render :partial => 'articles/search_form' %>
+      </div>
+      <%= session_info %>
+    </nav>
+    <main>
+      <%= yield %>
+    </main>
+    <footer class="row">
+      <div class="row cross-center">
+        <%= image_tag asset_path('favicon.ico'), size: '40' %>
+        Tech News
+      </div>
+      <div class="row cross-center main-center flex">
+        <%= link_to 'Privacy Policy', '#' %>
+        <%= link_to 'Terms & Conditions', '#' %>
+        <span>Copyright 2021. All rights reserved.</span>
+      </div>
+      <div class="row cross-center">
+        <span>Connect with us:</span>
+        <span><i class="fab fa-twitter"></i></span>
+        <span><i class="fab fa-instagram"></i></span>
+        <span><i class="fab fa-facebook-f"></i></span>
+      </div>
+    </footer>
+  </body>
+</html>

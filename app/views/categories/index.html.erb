@@ -1,0 +1,13 @@
+<div class="home">
+  <article class="most-voted">
+    <%= link_to '', '#', :style => "background-image: url(#{@most_voted_article.image});", :class => 'img' %>
+    <div>
+      <h3><%= @most_voted_article.title %></h3>
+      <p><%= @most_voted_article.text.truncate(100) %></p>
+    </div>
+  </article>
+
+  <div class="row wrap">
+    <%= home_categories %>
+  </div>
+</div>
