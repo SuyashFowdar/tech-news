@@ -192,6 +192,13 @@ body {
   color: green;
 }
 
+footer a,
+.article-details a {
+  display: inline-block;
+  padding: 8px;
+  color: rgb(248, 99, 9);
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -204,13 +211,13 @@ body {
 
   a,
   .nav-item {
-    padding: 0 20px !important;
+    padding: 0 20px;
     height: 40px;
-    display: flex !important;
+    display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 3px;
-    color: rgb(132, 127, 123) !important;
+    color: rgb(132, 127, 123);
     font-weight: bold;
     text-decoration: none;
 
@@ -220,8 +227,13 @@ body {
   }
 
   a.nav-selected {
-    color: rgb(248, 99, 9) !important;
+    color: rgb(248, 99, 9);
   }
+}
+
+footer a:hover,
+.article-details a:hover {
+  color: rgba(248, 99, 9, 0.7);
 }
 
 a.home-category-title {
@@ -229,21 +241,13 @@ a.home-category-title {
   color: white;
 }
 
-a:not(.img):not(.home-category-title) {
-  text-decoration: none;
-  display: inline-block;
-  padding: 8px;
-  border-radius: 3px;
-  color: rgb(248, 99, 9);
-  background-color: transparent;
-
-  &:hover {
-    color: rgba(248, 99, 9, 0.7);
-  }
+.nav a:hover {
+  color: rgba(248, 99, 9, 0.7);
 }
 
-.nav a:hover {
-  color: rgba(248, 99, 9, 0.7) !important;
+a:not(.img):not(.home-category-title) {
+  text-decoration: none;
+  border-radius: 3px;
 }
 
 main {
@@ -425,11 +429,11 @@ main {
 
 input[type="submit"],
 .links {
-  @extend a;
-
+  color: rgb(248, 99, 9);
   font-weight: bold;
   border: 0;
   cursor: pointer;
+  background-color: transparent;
 }
 
 footer {
