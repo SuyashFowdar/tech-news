@@ -22,7 +22,7 @@ module CategoriesHelper
     @articles.each do |article|
       items << '<article>'
       items << link_to('', '#', style: "background-image: url(#{article.image});", class: 'img')
-      items << '<div>'
+      items << '<div class="article-details">'
       items << "<h3>#{article.title}</h3>"
       items << "<p>#{article.text.truncate(100)}</p>"
       items << "<address>by #{article.author.name}</address>"
