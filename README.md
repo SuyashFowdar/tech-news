@@ -35,9 +35,10 @@ The project design is inspired by [Lifestyle](https://www.behance.net/gallery/14
 - Open your browser and go to `127.0.0.1:3000` or `localhost:3000`
 
 ## Live Demo
-
+https://guarded-reaches-31670.herokuapp.com/
 
 ## Screenshot
+![](./app/assets/images/Home.png)
 
 
 ## Designed With
