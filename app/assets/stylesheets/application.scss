@@ -224,7 +224,12 @@ body {
   }
 }
 
-a:not(.img) {
+a.home-category-title {
+  text-decoration: none;
+  color: white;
+}
+
+a:not(.img):not(.home-category-title) {
   text-decoration: none;
   display: inline-block;
   padding: 8px;

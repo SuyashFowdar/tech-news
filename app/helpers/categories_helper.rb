@@ -8,7 +8,7 @@ module CategoriesHelper
                                   category,
                                   style: "background-image: url(#{@list[category.id].image});", class: 'img')
         category_items << '<div class="col flex main-space-between">'
-        category_items << "<h3>#{category.name}</h3>"
+        category_items << "<h3>#{link_to(category.name, category, class: 'home-category-title')}</h3>"
         category_items << "<h4>#{@list[category.id].title}</h4>"
         category_items << '</div>'
       end
