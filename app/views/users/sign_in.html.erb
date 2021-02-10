@@ -1,0 +1,12 @@
+<h1 class="row main-center">Sign In</h1>
+
+<%= form_with(model: @user, url: { action: "create_session" }, class: 'form') do |form| %>
+  <div class="col margin8">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="row main-center">
+    <%= form.submit 'Sign In' %>
+  </div>
+<% end %>
