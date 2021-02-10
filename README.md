@@ -6,6 +6,8 @@ A Web App with great Articles on Smartphones, Tablets, Laptops and other tech. Y
 
 This project is the Capstone Project for the Microverse Rails Technical Curriculum. ![microverse](https://camo.githubusercontent.com/3a5835d4f56c57cec85939ac345e43fef164c178/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4d6963726f76657273652d626c756576696f6c6574)
 
+The project design is inspired by [Lifestyle](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version) concept designed by [Nelson Sakwa](https://www.behance.net/sakwadesignstudio)
+
 ## Concepts of Ruby on Rails used
 
 - Models, Views, and Controllers (MVC)
