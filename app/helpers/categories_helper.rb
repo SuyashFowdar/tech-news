@@ -44,7 +44,7 @@ module CategoriesHelper
       items << "<address>by #{article.author.name}</address>"
       if session[:user_id]
         items << if !article.votes.pluck(:user_id).include?(session[:user_id])
-                   link_to('Vote', action: 'vote', article: article, category: @category)
+                   link_to('Vote', class: 'call-vote', action: 'vote', article: article, category: @category)
                  else
                    '<div class="voted">Voted</div>'
                  end
