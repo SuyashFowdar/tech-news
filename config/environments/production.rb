@@ -89,6 +89,8 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  config.assets.check_precompiled_asset = false
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
