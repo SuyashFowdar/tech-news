@@ -28,7 +28,7 @@ The project design is inspired by [Lifestyle](https://www.behance.net/gallery/14
 - Navigate to the project directory like `cd tech-news`
 - Install the required gems. Run `bundle install`
 - Install Javascript dependencies. Run `yarn install`
-- Install the locale database. Run `rake db:migrate`
+- Install the locale database. Run `rake db:create` and `rake db:migrate`
 - Run `rake db:seed` to add the Default Categories or run `rake db:seed test_data=yes` to add categories with test data for Articles, Users and Votes.
 - If you have problems with the gem versions try installing [RVM](https://rvm.io/)
 - Launch a Rails Server using `rails server`

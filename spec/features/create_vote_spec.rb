@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.feature 'CreateVote', type: :feature do
   before :each do
     @user = User.create(name: 'John')
-    # post users_create_session_path @user2
     article = Article.create(title: 'Title', text: 'Text', image: 'Image', author: @user)
     category = Category.create(name: 'Phone', priority: 1)
     ArticleCategory.create(article: article, category: category)

@@ -2,22 +2,8 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show]
 
   def index
-    @most_voted_article = nil
-    @most_voted_article = ActiveRecord::Base.connection.execute(
-      'SELECT a.* FROM articles a
-      JOIN (SELECT a.id a_id, COUNT(v.id)
-      FROM articles a JOIN votes v ON a.id=article_id
-      GROUP BY a.id) c ON c.a_id=a.id
-      ORDER BY c.count DESC LIMIT 1'
-    ).first
-    @categories = ActiveRecord::Base.connection.execute(
-      'SELECT * FROM articles a
-      JOIN (SELECT ac.category_id, MAX(a.created_at)
-      FROM articles a
-      JOIN article_categories ac ON a.id=ac.article_id
-      GROUP BY ac.category_id) m ON m.max = a.created_at
-      JOIN categories c ON c.id=m.category_id'
-    )
+    @most_voted_article = Article.most_voted
+    @categories = Article.latest_for_categories
   end
 
   def show

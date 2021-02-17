@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.author_id = session[:user_id]
 
-    if @article.save
+    if !params[:categories].all?('0') && @article.save
       article_categories = []
       params[:categories].each do |category|
         article_categories.push({ category_id: category.to_i, article_id: @article.id }) if category != '0'
